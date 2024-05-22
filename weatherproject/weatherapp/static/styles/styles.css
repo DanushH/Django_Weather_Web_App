@@ -1,0 +1,36 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-color: #5c5a5c;
+}
+
+/* Center the nav bar elements */
+.navbar .container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the form inside the navbar */
+.navbar .d-flex {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the card itself */
+.card {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Center the elements inside the card */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center the card header text */
+.card-header h1 {
+    text-align: center;
+}
