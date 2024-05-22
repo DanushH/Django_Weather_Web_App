@@ -15,6 +15,7 @@ class IndexView(View):
 
     def post(self, request: HttpRequest) -> HttpResponse:
         city = request.POST.get("city")
+        city = city.replace(" ", "+")
 
         data = self.fetch_weather_data(city)
         return self.render_response(request, data)
@@ -26,7 +27,7 @@ class IndexView(View):
         data_list = json.loads(source)
 
         data = {
-            "city": city,
+            "city": city.replace("+", " "),
             "temp": f"{round(data_list['main']['temp'])}°C",
             "pressure": f"{data_list['main']['pressure']}Pa",
             "humidity": f"{data_list['main']['humidity']}%",
@@ -40,5 +41,5 @@ class IndexView(View):
     def render_response(self, request: HttpRequest, data: dict = None) -> HttpResponse:
         if data is None:
             data = {}
-        print(data)
+
         return render(request, self.template_name, data)
