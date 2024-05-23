@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/lux/bootstrap.min.css"
         integrity="sha512-RI2S7J+KOTIVVh6JxrBRNIxJjIioHORVNow+SSz2OMKsDLG5y/YT6iXEK+R0LlKBo/Uwr1O063yT198V6AZh4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <link rel="stylesheet" , href="{% static 'styles\styles.css' %}">
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" , href="{% static 'styles\styles.css' %}">
     <title>Weather App </title>
 </head>
 
@@ -18,27 +18,34 @@
         <div class="container-fluid">
             <form method="post" class="d-flex">
                 {% csrf_token %}
-                <input class="form-control me-sm-2" type="text" name="city" placeholder="Enter City Name">
+                <select name="Cities" id="cities" class="me-2">
+                    <option value="" disabled selected>SELECT LOCATION</option>
+                    {% for city in cities %}
+                    <option value="{{ city.city_name }}">
+                        {{ city.city_name }}, {{ city.country_name}}
+                    </option>
+                    {% endfor %}
+                </select>
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-            </form>      
+            </form>
         </div>
     </nav>
 
     <br> <br>
 
     {% if temp %}
-        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header">
-                <h1> {{city}} </h1>
-                <h2> {{temp}} </h2>
-            </div>
-            <div class="card-body">
-                <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="height:100px;width:100px">
-                <h3>{{description}}</h3>
-                <h5><span class="badge badge-primary">Pressure :</span> {{pressure}}</h5>
-                <h5><span class="badge badge-primary">Humidity : </span> {{humidity}}</h5>
-            </div>
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">
+            <h1> {{city}} </h1>
+            <h2> {{temp}} </h2>
         </div>
+        <div class="card-body">
+            <img src="http://openweathermap.org/img/w/{{icon}}.png" alt="Image" style="height:100px;width:100px">
+            <h3>{{description}}</h3>
+            <h5><span class="badge badge-primary">Pressure :</span> {{pressure}}</h5>
+            <h5><span class="badge badge-primary">Humidity : </span> {{humidity}}</h5>
+        </div>
+    </div>
     {% endif %}
 </body>
 

@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.conf import settings
 from django.views import View
 from django.http import HttpRequest, HttpResponse
+from .models import City
 
 
 class IndexView(View):
@@ -14,7 +15,7 @@ class IndexView(View):
         return self.render_response(request)
 
     def post(self, request: HttpRequest) -> HttpResponse:
-        city = request.POST.get("city")
+        city = request.POST.get("Cities")
         city = city.replace(" ", "+")
 
         data = self.fetch_weather_data(city)
@@ -41,5 +42,9 @@ class IndexView(View):
     def render_response(self, request: HttpRequest, data: dict = None) -> HttpResponse:
         if data is None:
             data = {}
+
+        # Fetch all cities from the database
+        cities = City.objects.all()
+        data["cities"] = cities
 
         return render(request, self.template_name, data)
