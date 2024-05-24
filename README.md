@@ -2,7 +2,7 @@
 
 ## Overview
 - A web application developed with [Django](https://www.djangoproject.com/), a high-level web framework for Python.
-- This application provides functionality for searching weather data by a city or country name.
+- This application provides functionality for searching weather data by a city and country name.
 
 <br/>
 
