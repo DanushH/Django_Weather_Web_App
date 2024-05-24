@@ -16,19 +16,20 @@ class IndexView(View):
 
     def post(self, request: HttpRequest) -> HttpResponse:
         city = request.POST.get("Cities")
-        city = city.replace(" ", "+")
 
-        data = self.fetch_weather_data(city)
+        city_name = City.objects.get(city_name=city)
+        data = self.fetch_weather_data(city_name.latitude, city_name.longitude)
+
         return self.render_response(request, data)
 
-    def fetch_weather_data(self, city: str) -> dict:
+    def fetch_weather_data(self, latitude: float, longitude: float) -> dict:
         source = urllib.request.urlopen(
-            f"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={self.api_key}"
+            f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&units=metric&appid={self.api_key}"
         ).read()
         data_list = json.loads(source)
 
         data = {
-            "city": city.replace("+", " "),
+            "city": f"{data_list['name']}, {data_list['sys']['country']}",
             "temp": f"{round(data_list['main']['temp'])}°C",
             "pressure": f"{data_list['main']['pressure']}Pa",
             "humidity": f"{data_list['main']['humidity']}%",
