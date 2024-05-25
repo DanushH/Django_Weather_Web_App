@@ -15,7 +15,7 @@
 
 ## Demo
 
-[![Video Title]()](https://www.youtube.com/embed/7hbYI6owLZs?autoplay=1&mute=1)
+[![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/embed/7hbYI6owLZs)
 
 
 ## Contact
