@@ -4,20 +4,27 @@
 - A web application developed with [Django](https://www.djangoproject.com/), a high-level web framework for Python.
 - This application provides functionality for searching weather data by a city and country name.
 
-<br/>
+<br>
 
 ## Tech Stack
 [![Python][Python-badge]][Python-url]
 [![Django][Django-badge]][Django-url]
 [![Bootstrap][Bootstrap-badge]][Bootstrap-url]
 
-<br/>
+<br>
+
+## Demo
+
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/7hbYI6owLZs?autoplay=1&mute=1">
+</iframe>
+
 
 ## Contact
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<br/>
+<br>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [Python-badge]: https://img.shields.io/badge/Python-black?style=for-the-badge&logo=python&logoColor=%23FDD835
