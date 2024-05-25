@@ -15,7 +15,7 @@
 
 ## Demo
 
-[![Demo](https://github.com/DanushH/Django_weather_web_app/blob/main/weatherproject/weatherapp/static/media/Result.PNG)](https://www.youtube.com/embed/7hbYI6owLZs)
+[![Demo](https://github.com/DanushH/Django_weather_web_app/blob/main/weatherproject/weatherapp/static/media/Result.PNG)](https://www.youtube.com/embed/7hbYI6owLZs?autoplay=1&mute=1)
 
 
 ## Contact
